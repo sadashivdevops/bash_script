@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  git-branch-manager:
+    build: .
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    container_name: git-branch-manager-web
+
+  # Optional: Add a backend service for actual git operations
+  # git-backend:
+  #   build: ./backend
+  #   ports:
+  #     - "8080:8080"
+  #   volumes:
+  #     - ./scripts:/app/scripts:ro
+  #   environment:
+  #     - NODE_ENV=production
+  #   restart: unless-stopped
+  #   container_name: git-branch-manager-backend
